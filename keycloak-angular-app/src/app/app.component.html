@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<p>POC for <a href="https://github.com/mauriciovigolo/keycloak-angular">keycloak-angular</a></p>
+<nav>
+  <a routerLink="/open-page">open</a>
+  <a routerLink="/page-one">page-one</a>
+  <a routerLink="/page-two">page-two</a>
+</nav>
+
+<ng-template [ngIf]="loggedIn$ | async" [ngIfElse]="login">
+  <button (click)="doLogout()">Log out</button>
+</ng-template>
+<ng-template #login>
+  <button (click)="doLogin()">Log in</button>
+</ng-template>
+
+<hr/>
+
+<router-outlet></router-outlet>

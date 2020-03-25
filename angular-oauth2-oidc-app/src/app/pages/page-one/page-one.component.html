@@ -1,0 +1,11 @@
+<h2>Page 1</h2>
+<p>This page is open to those with the csurv-user role.</p>
+
+<div class="col-sm-4" *ngFor="let post of posts | async">
+  <div class="card">
+    <ul class="card-body">
+      <li>{{post.title}}</li>
+      <li>{{post.author}}</li>
+    </ul>
+  </div>
+</div>

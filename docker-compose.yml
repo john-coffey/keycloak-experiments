@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  api:
+    image: williamyeh/json-server
+    ports:
+      - 3000:3000
+    volumes:
+      - ./api:/data
+    command: --watch db.json
+    
+  keycloak:
+    image: jboss/keycloak:8.0.1
+    environment:
+      DB_VENDOR: h2
+      KEYCLOAK_USER: kc-admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+      KEYCLOAK_IMPORT: /imports/csurv-app-realm.json
+    volumes:
+      - ./keycloak-data:/imports
+    ports:
+      - 8080:8080
